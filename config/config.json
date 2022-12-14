@@ -7,6 +7,7 @@
     "dialect": "postgres"
   },
   "test": {
+    "use_env_variable": "DATABASE_URL",
     "username": "postgres",
     "password": "password",
     "database": "database_test",
@@ -14,6 +15,7 @@
     "dialect": "postgres"
   },
   "production": {
+    "use_env_variable": "DATABASE_URL",
     "username": "temi",
     "password": "EwV9mF4cTyCrCl2hRYPXiEvCYgsZHOn0",
     "database": "students_info",
