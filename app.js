@@ -10,6 +10,7 @@ const {
   Course,
 } = require("./models");
 
+require('dotenv').config()
 
 // app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
