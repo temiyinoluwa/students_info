@@ -3,7 +3,6 @@ const http = require('http')
 const app = express()
 const db = require('./models')
 const bodyParser = require('body-parser')
-const port = 3000
 const {
   sequelize,
   Student,
@@ -11,6 +10,8 @@ const {
 } = require("./models");
 
 require('dotenv').config()
+
+const port = process.env.PORT || 3000;
 
 // app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
@@ -32,7 +33,7 @@ app.post('/students/:studentId/enroll', async (req, res) => {
       message: "student enrolled for course",
       student: student,
       course: course,
-     });
+    });
   } catch (err) {
     console.log(err);
     return res.status(500).json(err);
@@ -66,7 +67,7 @@ app.get('/student/:id', async (req, res) => {
       include: {
         model: Course,
         through: {
-         attributes: []
+          attributes: []
         }
       },
     });
@@ -159,10 +160,10 @@ app.post('/course', async (req, res) => {
     });
 
     return res.json({
-        status: true,
-        message: "course created",
-        student: course
-      });
+      status: true,
+      message: "course created",
+      student: course
+    });
   } catch (err) {
     console.log(err);
     return res.status(500).json(err);
